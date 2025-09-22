@@ -29,8 +29,7 @@ class LrsNelcXapiController extends Controller
 
         $xapi = new XapiIntegration();
 
-        switch ( $request->xapi_statement )
-        {
+        switch ($request->xapi_statement) {
             case "registered":
                 $response = $xapi->Registered(
                     '123456789', // Student National ID
@@ -41,7 +40,7 @@ class LrsNelcXapiController extends Controller
                     'MR Hassan', // instructor Name
                     'mrhassan@mail.com',  // instructor Email
                 );
-            break;
+                break;
             case "initialized":
                 $response = $xapi->Initialized(
                     '123456789', // Student National ID
@@ -52,7 +51,7 @@ class LrsNelcXapiController extends Controller
                     'MR Hassan', // instructor Name
                     'mrhassan@mail.com',  // instructor Email
                 );
-            break;
+                break;
             case "watched":
                 $response = $xapi->Watched(
                     '123456789', // Student National ID
@@ -67,9 +66,24 @@ class LrsNelcXapiController extends Controller
                     'New Course description',
                     'MR Hassan', // instructor Name
                     'mrhassan@mail.com',  // instructor Email
-                    
                 );
-            break;
+                break;
+            case "attended":
+                $response = $xapi->Attended(
+                    '123456789', // Student National ID
+                    'betalamoud@gmail.com', // Student Email
+                    '/url/to/lesson',
+                    'Lesson title',
+                    'Lesson description',
+                    true, // is lesson completed
+                    'PT15M', // watching duration
+                    '123',
+                    'New Course',
+                    'New Course description',
+                    'MR Hassan', // instructor Name
+                    'mrhassan@mail.com',  // instructor Email
+                );
+                break;
             case "completed_lesson":
                 $response = $xapi->CompletedLesson(
                     '123456789', // Student National ID
@@ -83,7 +97,7 @@ class LrsNelcXapiController extends Controller
                     'MR Hassan', // instructor Name
                     'mrhassan@mail.com',  // instructor Email                    
                 );
-            break;
+                break;
             case "completed_unit":
                 $response = $xapi->CompletedUnit(
                     '123456789', // Student National ID
@@ -97,7 +111,7 @@ class LrsNelcXapiController extends Controller
                     'MR Hassan', // instructor Name
                     'mrhassan@mail.com',  // instructor Email                 
                 );
-            break;
+                break;
             case "progressed":
                 $response = $xapi->Progressed(
                     '123456789', // Student National ID
@@ -108,9 +122,9 @@ class LrsNelcXapiController extends Controller
                     'MR Hassan', // instructor Name
                     'mrhassan@mail.com',  // instructor Email
                     0.5,
-                    true                   
+                    true
                 );
-            break;
+                break;
             case "attempted":
                 $response = $xapi->Attempted(
                     '123456789', // Student National ID
@@ -129,9 +143,9 @@ class LrsNelcXapiController extends Controller
                     25, // min
                     50, // max
                     true,
-                    true                 
+                    true
                 );
-            break;
+                break;
             case "completed_course":
                 $response = $xapi->CompletedCourse(
                     '123456789', // Student National ID
@@ -142,7 +156,7 @@ class LrsNelcXapiController extends Controller
                     'MR Hassan', // instructor Name
                     'mrhassan@mail.com',  // instructor Email                 
                 );
-            break;
+                break;
             case "earned":
                 $response = $xapi->Earned(
                     '123456789', // Student National ID
@@ -151,23 +165,23 @@ class LrsNelcXapiController extends Controller
                     'cert name',
                     '123',
                     'New Course',
-                    'New Course description',            
+                    'New Course description',
                 );
-            break;
+                break;
             case "rated":
                 $response = $xapi->Rated(
                     '123456789', // Student National ID
                     'betalamoud@gmail.com', // Student Email
                     '123',
                     'New Course',
-                    'New Course description',    
+                    'New Course description',
                     'MR Hassan', // instructor Name
                     'mrhassan@mail.com',  // instructor Email
                     0.8,
                     5,
-                    'Thank you' 
+                    'Thank you'
                 );
-            break;
+                break;
             default:
                 $response = $xapi->Registered(
                     '123456789', // Student National ID
@@ -180,7 +194,7 @@ class LrsNelcXapiController extends Controller
                 );
         }
 
-        return redirect()->back()->with(['success'=> $response, 'st'=> $request->xapi_statement]);
+        return redirect()->back()->with(['success' => $response, 'st' => $request->xapi_statement]);
     }
 
 }
