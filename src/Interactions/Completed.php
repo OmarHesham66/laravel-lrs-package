@@ -45,8 +45,8 @@ class Completed
             'object' => array(
                             'id'=> strval($lessonUrl),
                             'definition' => array(
-                                'name' => array(strval($this->lang) => strval($lessonTitle)),
-                                'description' => array(strval($this->lang) => strval($lessonDesc)),
+                                'name' => array("en-US" => strval($lessonTitle)),
+                                'description' => array("en-US" => strval($lessonDesc)),
                                 'type' => 'http://adlnet.gov/expapi/activities/lesson'
                             ),
                             'objectType' => 'Activity',
@@ -76,8 +76,8 @@ class Completed
                                     array (
                                         'id' => strval($courseId),
                                         'definition' => array(  
-                                            'name' => array(strval($this->lang) => strval($courseTitle)),
-                                            'description' => array( strval($this->lang) => strval($courseDesc) ),
+                                            'name' => array("en-US" => strval($courseTitle)),
+                                            'description' => array( "en-US" => strval($courseDesc) ),
                                             'type' => 'https://w3id.org/xapi/cmi5/activitytype/course'
                                         ),
                                         'objectType' => "Activity"

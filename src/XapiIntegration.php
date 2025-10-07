@@ -41,10 +41,10 @@ class XapiIntegration
 
     }
 
-    public function Registered($actor, $actorEmail, $courseId, $courseTitle, $courseDesc, $instructor, $instructorEmail)
+    public function Registered($actor, $actorEmail, $actorName, $actorMobile, $actorBirth, $actorNationality, $courseId, $courseTitle, $courseDesc, $instructor, $instructorEmail, $duration)
     {
         $instance = new Registered();
-        $data = $instance->Send($actor, $actorEmail, $courseId, $courseTitle, $courseDesc, $instructor, $instructorEmail);
+        $data = $instance->Send($actor, $actorEmail, $actorName, $actorMobile, $actorBirth, $actorNationality, $courseId, $courseTitle, $courseDesc, $instructor, $instructorEmail, $duration);
 
         return $this->sendXAPIRequest($data);
     }

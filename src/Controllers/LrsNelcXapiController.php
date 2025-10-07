@@ -34,11 +34,16 @@ class LrsNelcXapiController extends Controller
                 $response = $xapi->Registered(
                     '123456789', // Student National ID
                     'betalamoud@gmail.com', // Student Email
+                    'betalamoud', // Student Name
+                    '+977123456789', // Student Mobile
+                    '2001-9-5', // Student Birth of Date
+                    'Saudi Arabia', // Student Nationality
                     '123', // Course Id OR url Or slug
                     'New Course',
                     'New Course description',
                     'MR Hassan', // instructor Name
                     'mrhassan@mail.com',  // instructor Email
+                    'PT15M',  // instructor Email
                 );
                 break;
             case "initialized":

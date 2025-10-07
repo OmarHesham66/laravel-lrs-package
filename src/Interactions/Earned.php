@@ -35,7 +35,7 @@ class Earned
             'object' => array(
                             'id'=> strval($certUrl),
                             'definition' => array(
-                                'name' => array($this->lang => strval($certName)),
+                                'name' => array("en-US"=> strval($certName)),
                                 'type' => 'https://www.opigno.org/en/tincan_registry/activity_type/certificate'
                             ),
                             'objectType' => 'Activity',
@@ -57,8 +57,8 @@ class Earned
                                     array (
                                         'id' => strval($courseId),
                                         'definition' => array(  
-                                            'name' => array(strval($this->lang) => strval($courseTitle)),
-                                            'description' => array( strval($this->lang) => strval($courseDesc) ),                                            'type' => 'https://w3id.org/xapi/cmi5/activitytype/course'
+                                            'name' => array("en-US" => strval($courseTitle)),
+                                            'description' => array( "en-US" => strval($courseDesc) ),                                            'type' => 'https://w3id.org/xapi/cmi5/activitytype/course'
                                         ),
                                         'objectType' => "Activity"
                                     )

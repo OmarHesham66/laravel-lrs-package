@@ -35,8 +35,8 @@ class Progressed
             'object' => array(
                             'id'=> strval($courseId),
                             'definition' => array(
-                                'name' => array(strval($this->lang) => strval($courseTitle)),
-                                'description' => array(strval($this->lang) => strval($courseDesc)),
+                                'name' => array("en-US" => strval($courseTitle)),
+                                'description' => array("en-US" => strval($courseDesc)),
                                 'type' => 'https://w3id.org/xapi/cmi5/activitytype/course'
                             ),
                             'objectType' => 'Activity',
