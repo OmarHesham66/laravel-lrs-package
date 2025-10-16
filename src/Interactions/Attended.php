@@ -20,7 +20,7 @@ class Attended
     {
         $this->platform_in_arabic = config('platform_in_arabic');
         $this->platform_in_english = config('platform_in_english');
-        $this->platform = App::getLocale() === 'ar' ? $this->platform_in_arabic : $this->platform_in_english;
+        $this->platform = config('key');
         $this->lang = App::getLocale() === 'ar' ? 'ar-SA' : 'en-US';
 
         $agent = new Agent();
@@ -48,7 +48,7 @@ class Attended
                 'definition' => array(
                     'name' => array("en-US" => strval($lessonTitle)),
                     'description' => array("en-US" => strval($lessonDesc)),
-                    'type' => 'https://w3id.org/xapi/video/activity-type/video'
+                    'type' => 'https://w3id.org/xapi/video/activity-type/virtual-classroom'
                 ),
                 'objectType' => 'Activity',
             ),

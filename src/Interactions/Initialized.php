@@ -16,7 +16,7 @@ class Initialized
     {
         $this->platform_in_arabic = config('platform_in_arabic');
         $this->platform_in_english = config('platform_in_english');
-        $this->platform = App::getLocale() === 'ar' ? $this->platform_in_arabic : $this->platform_in_english;
+        $this->platform = config('key');
         $this->lang = App::getLocale() === 'ar' ? 'ar-SA' : 'en-US';
 
     }
