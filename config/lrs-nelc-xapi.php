@@ -7,4 +7,5 @@ return [
     'platform_in_arabic'    => '',
     'platform_in_english'    => '',
     'base_route'    => 'nelcxapi/test',
+    'platform' => '',
 ];
