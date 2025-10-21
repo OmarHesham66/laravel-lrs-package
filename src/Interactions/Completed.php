@@ -16,11 +16,15 @@ class Completed
     protected $browserVersion;
     protected $browserCode;
 
-    public function __construct()
+    /**
+     *  tenanat system not work in constructor because in constructor central is work in it
+     * @return void
+     */
+    public function init()
     {
-        $this->platform_in_arabic = config('platform_in_arabic');
-        $this->platform_in_english = config('platform_in_english');
-        $this->platform = config('platform');
+        $this->platform_in_arabic = config('lrs-nelc-xapi.platform_in_arabic');
+        $this->platform_in_english = config('lrs-nelc-xapi.platform_in_english');
+        $this->platform = config('lrs-nelc-xapi.platform');
         $this->lang = App::getLocale() === 'ar' ? 'ar-SA' : 'en-US';
 
         $agent = new Agent();
@@ -31,7 +35,7 @@ class Completed
     }
 
     public function Send( $actor, $actorEmail, $lessonUrl, $lessonTitle, $lessonDesc, $courseId, $courseTitle, $courseDesc, $instructor, $instructorEmail ){
-
+        $this->init();
         $data = array(
             'actor' => array(
                         'name' => strval($actor),

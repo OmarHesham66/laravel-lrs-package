@@ -12,17 +12,21 @@ class Registered
     protected $platform;
     protected $lang;
 
-    public function __construct()
+    /**
+     *  tenanat system not work in constructor because in constructor central is work in it
+     * @return void
+     */
+    public function init()
     {
-        $this->platform_in_arabic = config('platform_in_arabic');
-        $this->platform_in_english = config('platform_in_english');
-        $this->platform = config('platform');
+        $this->platform_in_arabic = config('lrs-nelc-xapi.platform_in_arabic');
+        $this->platform_in_english = config('lrs-nelc-xapi.platform_in_english');
+        $this->platform = config('lrs-nelc-xapi.platform');
         $this->lang = App::getLocale() === 'ar' ? 'ar-SA' : 'en-US';
     }
 
     public function Send($actor, $actorEmail, $actorName, $actorMobile, $actorBirth, $actorNationality, $courseId, $courseTitle, $courseDesc, $instructor, $instructorEmail, $duration)
     {
-
+        $this->init();
         $data = array(
             'actor' => array(
                 'name' => strval($actor),
@@ -50,11 +54,11 @@ class Registered
                 'platform' => strval($this->platform),
                 'language' => strval($this->lang),
                 "extensions" => array(
-                    "https://nelc.gov.sa/extensions/duration" =>strval($duration),
-                    "https://nelc.gov.sa/extensions/learner_mobile_no" =>strval($actorMobile),
-                    "https://nelc.gov.sa/extensions/learner_full_name" =>strval($actorName),
-                    "https://nelc.gov.sa/extensions/learner_nationality" =>strval($actorNationality),
-                    "https://nelc.gov.sa/extensions/learner_date_of_birth" =>strval($actorBirth),
+                    "https://nelc.gov.sa/extensions/duration" => strval($duration),
+                    "https://nelc.gov.sa/extensions/learner_mobile_no" => strval($actorMobile),
+                    "https://nelc.gov.sa/extensions/learner_full_name" => strval($actorName),
+                    "https://nelc.gov.sa/extensions/learner_nationality" => strval($actorNationality),
+                    "https://nelc.gov.sa/extensions/learner_date_of_birth" => strval($actorBirth),
                     "https://nelc.gov.sa/extensions/platform" => array(
                         "name" => array(
                             "ar-SA" => strval($this->platform_in_arabic),
