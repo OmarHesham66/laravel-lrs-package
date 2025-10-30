@@ -67,6 +67,14 @@ class Watched
                                     "code_name" => strval($this->browserCode),
                                     "name" => strval($this->browserName),  
                                     "version" => strval($this->browserVersion)
+                                ),
+                                array(
+                                    "https://nelc.gov.sa/extensions/platform" => array(
+                                        "name" => array(
+                                            "ar-SA" => strval($this->platform_in_arabic),
+                                            "en-US" => strval($this->platform_in_english)
+                                        )
+                                    )
                                 )
                             ),
                             'contextActivities' => array(
@@ -79,7 +87,9 @@ class Watched
                                             'type' => 'https://w3id.org/xapi/cmi5/activitytype/course'
                                         ),
                                         'objectType' => "Activity"
-                                    )
+                                    ),
+                                    
+                                    
                                 )
                             )
                         ),
